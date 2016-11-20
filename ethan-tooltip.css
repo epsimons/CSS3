@@ -1,0 +1,169 @@
+/*
+        Simple Tooltip by Ethan Simons
+        The first tooltip contains a brief explanation of what every component is for ease of understanding.
+        If you like this, send me an email to ethanpsimons38@gmail.com
+
+
+        *******************************************************
+        How to use:
+
+        <div class=".es-tooltip">Hover over me!
+            <span class="es-tooltip-right">I'm on the right!</span>
+        </div>
+
+        *******************************************************
+*/
+
+/* Set up basic container */
+.es-tooltip {
+    position: relative;  /* Set the tooltip "relative" to the item in question*/
+    display: inline-block;  /* Display as an inline- block*/
+}
+
+ /* Set up positions */
+
+ /* Set up the tooltip on the top */
+ .es-tooltip .es-tooltip-top {
+    visibility: hidden;   /* Don't show until ready */
+    width: 120px;   /* Set the width of the tooltip */
+    text-align: center;  /* Center text for easier reading*/
+    padding: 3px;   /* Create space */
+    border-radius: 4px;  /* Slightly rounded corners */
+    background-color: rgb(255,255,255);  /* background color */
+    color: rgb(0,0,0);  /* text color */
+    font-family: Arial, Helvetica, sans-serif; /* Plain web safe fonts */
+    font-size: 10pt; /* Small but readable size */
+    border: 2px solid rgb(0,0,0);  /* Set border thickness */
+    position: absolute;  /* absolute allows positioning independant of document flow */
+    z-index: 1;   /* Put tooltip above other content */
+    opacity: 0;  /* Completely see-through to allow fade in */
+    transition: opacity 1s;   /* Simple transition over 1 second */
+     bottom: 150%;   /* position of tooltip this will be on top */
+     left: 50%;   /* Center the tooltip left and right */
+     margin-left: -60px;   /* Half ot tooltip width */
+ }
+
+ /* The following is optional. It produces the little arrow that points
+ to the item that was hovered over  */
+.es-tooltip .es-tooltip-top::after {
+    content: ""; /* Makes an empty element */
+    position: absolute; /* absolute allows positioning independant of document flow */
+    top: 100%; /* Position the arrow on the bottom */
+    left: 50%;  /* Center the arrow */
+    margin-left: -5px;  /* Pull toward left margin */
+    border-width: 5px; /* Set width of border (arrow thickness) */
+    border-style: solid; /* ensure that the arrow is a solid line */
+    border-color: black transparent transparent transparent; /* Changing this will change direction of arrow */
+}
+
+/* Set up the tooltip on the bottom */
+  .es-tooltip .es-tooltip-bottom {
+    visibility: hidden;
+    width: 120px;
+    text-align: center;
+    padding: 3px;
+    border-radius: 4px;
+    background-color: rgb(255,255,255);
+    color: rgb(0,0,0);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+    border: 2px solid rgb(0,0,0);
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 1s;
+     top: 150%;
+     left: 50%;
+     margin-left: -60px;
+ }
+.es-tooltip .es-tooltip-bottom::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent black transparent;
+}
+
+ /* Set up the tooltip on the left */
+  .es-tooltip .es-tooltip-left {
+    visibility: hidden;
+    width: 120px;
+    text-align: center;
+    padding: 3px;
+    border-radius: 4px;
+    background-color: rgb(255,255,255);
+    color: rgb(0,0,0);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+    border: 2px solid rgb(0,0,0);
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 1s;
+     top: 0;
+     right: 105%;
+ }
+
+.es-tooltip .es-tooltip-left::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent black;
+}
+
+/* Set up the tooltip on the right */
+  .es-tooltip .es-tooltip-right {
+    visibility: hidden;
+    width: 120px;
+    text-align: center;
+    padding: 3px;
+    border-radius: 4px;
+    background-color: rgb(255,255,255);
+    color: rgb(0,0,0);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+    border: 2px solid rgb(0,0,0);
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 1s;
+     top: 0;
+     left: 105%;
+ }
+.es-tooltip .es-tooltip-right::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent black transparent transparent;
+}
+
+/* Show the tooltip */
+
+.es-tooltip:hover .es-tooltip-right  {
+    visibility: visible;
+    opacity: 1;
+}
+.es-tooltip:hover .es-tooltip-left  {
+    visibility: visible;
+    opacity: 1;
+}
+
+.es-tooltip:hover .es-tooltip-bottom  {
+    visibility: visible;
+    opacity: 1;
+}
+.es-tooltip:hover .es-tooltip-top  {
+    visibility: visible;
+    opacity: 1;
+}
